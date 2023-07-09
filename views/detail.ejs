@@ -1,0 +1,29 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+
+            <% if (!contact) { %>
+                <div class="alert alert-danger" role="alert">
+                    Contact not found <br><a href="/contact" class="alert-link">Back to the list Contact</a>
+                  </div>
+            <% } else { %> 
+            <h2>Detail Contact</h2>
+            <div class="card mt-3" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= contact.nama %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= contact.nohp %></h6>
+                  <p class="card-text"><%= contact.email %></p>
+                  <div class="d-flex justify-content-between mt-4">
+                    <a href="/contact" class="btn btn-secondary">Back</a>
+                    <a href="/contact/edit/<%= contact.nama %>" class="btn btn-warning">Edit</a>
+                    <a href="/contact/delete/<%= contact.nama %>" class="btn btn-danger" onclick="return confirm('Do you wanna delete this contact?')">Delete</a>
+                  </div>
+                  
+                
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+    <% if (msg.length != 0) { %>
+     
+      <div class="alert alert-success" role="alert">
+        <%= msg %>
+      </div>
+        <% } %>
+    
+    <div class="d-flex justify-content-between" header">
+      <h1 class="d-inline">List Contact</h1>
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/contact/add" class="btn m-1 btn-sm btn-primary" type="button">Add</a>
+        <a class="btn m-1 btn-sm btn-danger" type="button">Remove</a>
+      </div>
+    </div>
+    
+    <table class="table table-dark table-hover mt-1">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone Number</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (contacts.length === 0 ) { %>
+          <div class="alert alert-danger" role="alert">
+            Contacts is empety
+          </div>
+        <% } else { %>
+
+        <% contacts.forEach((contact,i )=> { %>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= contact.nama %></td>
+            <td><%= contact.nohp %></td>
+            <td><a href="/contact/<%= contact.nama %>" class="btn btn-secondary badge">Detail</button></td>
+            </a>
+          </tr>
+        <% }) %>
+        
+        <% } %>
+      </tbody>
+
+    </table>
